@@ -25,9 +25,8 @@ public class NbDetailController {
 		String loginId = nb.getWriter();
 		
 		request.setAttribute("nb", nb);
-		request.setAttribute("loginId", loginId);
-		
-		System.out.println("loginId : "+loginId);
+		request.setAttribute("writerId", loginId);
+		System.out.println("writerId : "+loginId);
 	
 		request.getRequestDispatcher("noticeboardsDetail.jsp").forward(request, response);
 	}

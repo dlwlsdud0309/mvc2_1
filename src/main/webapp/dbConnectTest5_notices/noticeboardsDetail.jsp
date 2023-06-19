@@ -97,8 +97,9 @@ rs.next(); */
 
 <a href="noticeboards.jsp">목록</a>
 <%
-if(session.getAttribute("sessionId").equals(request.getAttribute("loginId"))) {
+if(session.getAttribute("sessionId").equals(request.getAttribute("writerId"))) {
 	System.out.println("sessionId : "+session.getAttribute("sessionId"));
+	System.out.println("writerId : "+request.getAttribute("writerId"));
 %>
 	<a href="noticeboardsEdit.jsp?no=${nb.seq}">수정</a>
 	<a href="noticeboardsDelProc.jsp?no=${nb.seq}">삭제</a>
