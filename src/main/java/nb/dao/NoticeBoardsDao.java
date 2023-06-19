@@ -5,20 +5,14 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import nb.db.DBCon;
 import nb.vo.NoticeBoards;
 
 public class NoticeBoardsDao {
 	public int delete(NoticeBoards nb) throws Exception {
 		int cnt = 0;
 		
-		String driver = "oracle.jdbc.driver.OracleDriver";
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		String user = "hr";
-		String pw = "123456";
-
-		Class.forName(driver);
-		Connection conn = null;
-		conn = DriverManager.getConnection(url, user, pw);
+		Connection conn = DBCon.getConnection();
 		PreparedStatement pstmt = null;
 
 		String sql = "delete from noticeboards where seq=?";
@@ -32,16 +26,8 @@ public class NoticeBoardsDao {
 	public int insert(NoticeBoards nb) throws Exception {
 		int resultNum = 0;
 		//db연결하여 insert
-		Connection conn = null;
+		Connection conn = DBCon.getConnection();
 		PreparedStatement pstmt = null;
-
-		String driver = "oracle.jdbc.driver.OracleDriver";
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		String user = "hr";
-		String pw = "123456";
-
-		Class.forName(driver);
-		conn = DriverManager.getConnection(url, user, pw);
 
 		String sql = "insert into noticeboards(seq, title, writer, content, regdate, hit)";
 				sql+= " values((select max(seq)+1 from noticeboards)";
@@ -59,14 +45,7 @@ public class NoticeBoardsDao {
 	}
 	
 	public int edit(NoticeBoards nb) throws Exception {
-		String driver = "oracle.jdbc.driver.OracleDriver";
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		String user = "hr";
-		String pw = "123456";
-
-		Class.forName(driver);
-		Connection conn = null;
-		conn = DriverManager.getConnection(url, user, pw);
+		Connection conn = DBCon.getConnection();
 
 		String sql = "update noticeboards set title=?, content=? where seq=?";
 
@@ -87,18 +66,7 @@ public class NoticeBoardsDao {
 	}
 	
 	public NoticeBoards getNBD(String num) throws Exception {
-		String driver = "oracle.jdbc.driver.OracleDriver";
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		String user = "hr";
-		String pw = "123456";
-
-		Class.forName(driver);
-		Connection conn = DriverManager.getConnection(url, user, pw);
-
-		//String sql = "select * from noticeboards where seq='"+num+"'"; //num이 String이기 때문에 작은따옴표 사용
-
-		//Statement st = conn.createStatement();
-		//ResultSet rs = st.executeQuery(sql);
+		Connection conn = DBCon.getConnection();
 
 		String sql = "select * from noticeboards where seq=?";
 
