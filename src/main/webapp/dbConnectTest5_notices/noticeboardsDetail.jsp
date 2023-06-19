@@ -11,7 +11,7 @@
 request.setCharacterEncoding("utf-8");
 %>
 <%
-String num = request.getParameter("no");
+/* String num = request.getParameter("no");
 
 if(num==null){
 	System.out.println("null");
@@ -22,7 +22,7 @@ if(num==null){
 
 NoticeBoardsDao dao = new NoticeBoardsDao();
 NoticeBoards nb = dao.getNBD(num);
-String loginId = nb.getWriter();
+String loginId = nb.getWriter(); */
 
 
 /* String driver = "oracle.jdbc.driver.OracleDriver";
@@ -70,23 +70,23 @@ rs.next(); */
 	<tbody>
 		<tr>
 			<th class="left">글번호</th>
-			<td><%=nb.getSeq() %></td>
+			<td>${nb.seq}</td>
 			<th class="left">조회수</th>
-			<td><%=nb.getHit() %></td>
+			<td>${nb.hit}</td>
 		</tr>
 		<tr>
 			<th class="left">작성자</th>
-			<td><%=nb.getWriter() %></td>
+			<td>${nb.writer}</td>
 			<th class="left">작성일</th>
-			<td><%=nb.getRegdate() %></td>
+			<td>${nb.regdate}</td>
 		</tr>
 		<tr>
 			<th class="left">제목</th>
-			<td colspan="3" id="title"><%=nb.getTitle() %></td>
+			<td colspan="3" id="title">${nb.title}</td>
 		</tr>
 		<tr>
 			<th class="left">내용</th>
-			<td colspan="3" id="content"><%=nb.getContent() %></td>
+			<td colspan="3" id="content">${nb.content}</td>
 		</tr>
 		<tr>
 			<th class="left">첨부</th>
@@ -97,10 +97,12 @@ rs.next(); */
 
 <a href="noticeboards.jsp">목록</a>
 <%
-if(session.getAttribute("sessionId").equals(loginId)) {
+if(session.getAttribute("sessionId").equals("${loginId.loginId}")) {
+	System.out.println("sessionId : "+session.getAttribute("sessionId"));
+	System.out.println("loginId : "+session.getAttribute("loginId"));
 %>
-	<a href="noticeboardsEdit.jsp?no=<%=nb.getSeq() %>">수정</a>
-	<a href="noticeboardsDelProc.jsp?no=<%=nb.getSeq() %>">삭제</a>
+	<a href="noticeboardsEdit.jsp?no=${nb.seq}">수정</a>
+	<a href="noticeboardsDelProc.jsp?no=${nb.seq}">삭제</a>
 <%
 }
 %>

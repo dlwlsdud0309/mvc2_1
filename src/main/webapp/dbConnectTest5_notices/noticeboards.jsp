@@ -67,7 +67,7 @@ if(session.getAttribute("sessionId")==null){
 	<tr>
 		<td><%=rs.getInt("seq") %></td>
 		<td>
-			<a href="noticeboardsDetail.jsp?no=<%=rs.getInt("seq") %>"><%=rs.getString("title") %></a>
+			<a href="noticeboardsDetail.do?no=<%=rs.getInt("seq") %>"><%=rs.getString("title") %></a>
 		</td>
 		<td><%=rs.getString("writer") %></td>
 		<td>
