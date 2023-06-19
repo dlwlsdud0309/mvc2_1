@@ -10,7 +10,8 @@ import jakarta.servlet.http.HttpServletResponse;
 public class MyDispatcher extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest arg0, HttpServletResponse arg1) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		super.service(arg0, arg1);
+		
+		System.out.println("hihi");
 	}
 }

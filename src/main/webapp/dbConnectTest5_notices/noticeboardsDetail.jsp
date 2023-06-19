@@ -95,11 +95,11 @@ rs.next(); */
 	</tbody>
 </table>
 
-<a href="noticeboardsEdit.jsp?no=<%=nb.getSeq() %>">수정</a>
 <a href="noticeboards.jsp">목록</a>
 <%
 if(session.getAttribute("sessionId").equals(loginId)) {
 %>
+	<a href="noticeboardsEdit.jsp?no=<%=nb.getSeq() %>">수정</a>
 	<a href="noticeboardsDelProc.jsp?no=<%=nb.getSeq() %>">삭제</a>
 <%
 }
