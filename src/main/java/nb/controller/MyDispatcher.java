@@ -13,12 +13,12 @@ public class MyDispatcher extends HttpServlet{
 		
 		System.out.println(".do 신호 확인");
 		
-		String uri = request.getRequestURI();
-		String conPath = request.getContextPath();
-		String com = uri.substring(conPath.length());
+		String uri = request.getRequestURI(); // /ContextPath(=Context root)명/폴더명/파일명.do
+		String conPath = request.getContextPath(); // /ContextPath(=Context root) 명
+		String com = uri.substring(conPath.length());// /ContextPath(=Context root) 명 제외한 /폴더명/파일명.do
 		System.out.println("uri : "+uri);
 		System.out.println("conPath : "+conPath);
 		System.out.println("com : "+com);
-		System.out.println(conPath.length());
+		//System.out.println(conPath.length());
 	}
 }
