@@ -5,9 +5,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import nb.dao.NoticeBoardsDao;
 import nb.vo.NoticeBoards;
 
-public class NbDetailController {
+public class NbEditController {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("NbDetailController mvc2 신호");
+		System.out.println("NbEditController mvc2 신호");
 		
 		String num = request.getParameter("no");
 		
