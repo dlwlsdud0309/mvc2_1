@@ -97,7 +97,7 @@ rs.next(); */
 
 <a href="noticeboards.jsp">목록</a>
 <%
-if(session.getAttribute("sessionId")!=null){
+if(session.getAttribute("sessionId")!=null){ //로그인 되어있을 경우
 	if(session.getAttribute("sessionId").equals(request.getAttribute("writerId"))) {
 //	System.out.println("sessionId : "+session.getAttribute("sessionId"));
 //	System.out.println("writerId !!! : "+request.getAttribute("writerId"));
