@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import nb.controller.dbConnectTest5.NbDetailController;
+import nb.controller.dbConnectTest5.NbEditController;
 
 public class MyDispatcher extends HttpServlet{
 	@Override
@@ -24,6 +25,7 @@ public class MyDispatcher extends HttpServlet{
 //		System.out.println(conPath.length());
 		
 		NbDetailController controller1 = new NbDetailController();
+		NbEditController controller2 = new NbEditController();
 		
 		try {
 			if(com.equals("/dbConnectTest5_notices/noticeboardsDetail.do")) {

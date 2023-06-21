@@ -104,10 +104,10 @@ if(session.getAttribute("sessionId").equals(request.getAttribute("writerId"))) {
 	<a href="noticeboardsEdit.do?no=${nb.seq}">수정</a>
 	<a href="noticeboardsDelProc.jsp?no=${nb.seq}">삭제</a>
 <%
-}else {
-	System.out.println("sessionId null");
-	response.sendRedirect("../index.jsp");
-	return;
+//}else {
+//	System.out.println("sessionId null");
+//	response.sendRedirect("../index.jsp");
+//	return;
 }
 %>
 
