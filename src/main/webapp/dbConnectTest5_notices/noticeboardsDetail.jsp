@@ -97,18 +97,16 @@ rs.next(); */
 
 <a href="noticeboards.jsp">목록</a>
 <%
-//if(session.getAttribute("sessionId").equals(request.getAttribute("writerId"))) {
+if(session.getAttribute("sessionId")!=null){
+	if(session.getAttribute("sessionId").equals(request.getAttribute("writerId"))) {
 //	System.out.println("sessionId : "+session.getAttribute("sessionId"));
 //	System.out.println("writerId !!! : "+request.getAttribute("writerId"));
 %>
 	<a href="noticeboardsEdit.do?no=${nb.seq}">수정</a>
 	<a href="noticeboardsDelProc.jsp?no=${nb.seq}">삭제</a>
 <%
-//}else {
-//	System.out.println("sessionId null");
-//	response.sendRedirect("../index.jsp");
-//	return;
-//}
+	}
+}
 %>
 
 </body>
