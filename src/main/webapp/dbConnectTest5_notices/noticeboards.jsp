@@ -45,6 +45,7 @@ if(session.getAttribute("sessionId")==null){
 	//response.sendRedirect("../dbConnectTest5_login/loginForm.jsp");
 	//return;
 	//위의 주석을 해제하면 정상작동하나 로그인하지 않으면 게시글 읽기 자체도 불가능하게 됨
+	System.out.println("noticeboards에 로그인하지않고 접근");
 }else{
 %>
 	<%=session.getAttribute("sessionId") %>님이 로그인하셨습니다.
