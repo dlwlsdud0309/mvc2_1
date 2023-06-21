@@ -23,7 +23,7 @@ if(num==null){
 NoticeBoardsDao dao = new NoticeBoardsDao();
 NoticeBoards nb = dao.getNBD(num);
 
-String driver = "oracle.jdbc.driver.OracleDriver";
+/* String driver = "oracle.jdbc.driver.OracleDriver";
 String url = "jdbc:oracle:thin:@localhost:1521:xe";
 String user = "hr";
 String pw = "123456";
@@ -37,7 +37,7 @@ PreparedStatement pstmt = conn.prepareStatement(sql);
 pstmt.setInt(1, Integer.parseInt(num));
 
 ResultSet rs = pstmt.executeQuery();
-rs.next();
+rs.next(); */
 
 
 //System.out.println(rs.getString("title"));

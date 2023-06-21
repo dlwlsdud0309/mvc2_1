@@ -10,7 +10,7 @@ public class NbEditController {
 		System.out.println("NbEditController mvc2 신호");
 		
 		String num = request.getParameter("no");
-		
+
 		if(num==null){
 			System.out.println("null");
 			response.sendRedirect("noticeboards.jsp");
@@ -18,14 +18,20 @@ public class NbEditController {
 			//참조사이트 : https://findmypiece.tistory.com/55
 		}
 
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
+
+		NoticeBoards nb = new NoticeBoards();
+		nb.setTitle(title);
+		nb.setContent(content);
+		nb.setSeq(Integer.parseInt(num));
+
 		NoticeBoardsDao dao = new NoticeBoardsDao();
-		NoticeBoards nb = dao.getNBD(num);
-		String loginId = nb.getWriter();
+		int cnt = dao.edit(nb);
 		
-		request.setAttribute("nb", nb);
-		request.setAttribute("writerId", loginId);
-		System.out.println("writerId : "+loginId);
-	
-		request.getRequestDispatcher("noticeboardsDetail.jsp").forward(request, response);
+		if(cnt>0){
+			//System.out.println("cnt : "+cnt); //결과값 1
+			response.sendRedirect("noticeboardsDetail.jsp?no="+num);
+		}
 	}
 }

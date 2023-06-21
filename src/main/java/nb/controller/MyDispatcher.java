@@ -30,6 +30,8 @@ public class MyDispatcher extends HttpServlet{
 		try {
 			if(com.equals("/dbConnectTest5_notices/noticeboardsDetail.do")) {
 				controller1.execute(request, response);
+			}else if(com.equals("/dbConnectTest5_notices/noticeboardsEdit.do")) {
+				controller2.execute(request, response);
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
