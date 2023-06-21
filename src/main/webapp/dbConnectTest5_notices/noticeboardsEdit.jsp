@@ -11,7 +11,7 @@
 request.setCharacterEncoding("utf-8");
 %>
 <%
-String num = request.getParameter("no");
+/* String num = request.getParameter("no");
 
 if(num==null){
 	System.out.println("null");
@@ -21,7 +21,7 @@ if(num==null){
 }
 
 NoticeBoardsDao dao = new NoticeBoardsDao();
-NoticeBoards nb = dao.getNBD(num);
+NoticeBoards nb = dao.getNBD(num); */
 
 /* String driver = "oracle.jdbc.driver.OracleDriver";
 String url = "jdbc:oracle:thin:@localhost:1521:xe";
@@ -64,26 +64,26 @@ rs.next(); */
 		<tbody>
 			<tr>
 				<th class="left">글번호</th>
-				<td><%=nb.getSeq() %></td>
+				<td>${nb.seq}</td>
 				<th class="left">조회수</th>
-				<td><%=nb.getHit() %></td>
+				<td>${nb.hit}</td>
 			</tr>
 			<tr>
 				<th class="left">작성자</th>
-				<td><%=nb.getWriter() %></td>
+				<td>${nb.writer}</td>
 				<th class="left">작성일</th>
-				<td><%=nb.getRegdate() %></td>
+				<td>${nb.regdate}</td>
 			</tr>
 			<tr>
 				<th class="left">제목</th>
 				<td colspan="3" id="title">
-					<textarea class="text" name="title" cols="30"><%=nb.getTitle() %></textarea>
+					<textarea class="text" name="title" cols="30">${nb.title}</textarea>
 				</td>
 			</tr>
 			<tr>
 				<th class="left">내용</th>
 				<td colspan="3" id="content">
-					<textarea class="text" name="content" rows="10" cols="30"><%=nb.getContent() %></textarea>
+					<textarea class="text" name="content" rows="10" cols="30">${nb.content}</textarea>
 				</td>
 			</tr>
 			<tr>
@@ -92,9 +92,9 @@ rs.next(); */
 			</tr>
 		</tbody>
 	</table>
-	<input type="hidden" name="no" value="<%=nb.getSeq() %>" />
+	<input type="hidden" name="no" value="${nb.seq}" />
 	<input type="submit" value="수정" />
-	<a href="noticeboardsDetail.jsp?no=<%=nb.getSeq() %>">취소</a>
+	<a href="noticeboardsDetail.jsp?no=${nb.seq}">취소</a>
 </form>
 
 </body>

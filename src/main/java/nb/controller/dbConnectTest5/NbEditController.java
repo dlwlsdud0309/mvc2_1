@@ -18,20 +18,11 @@ public class NbEditController {
 			//참조사이트 : https://findmypiece.tistory.com/55
 		}
 
-		String title = request.getParameter("title");
-		String content = request.getParameter("content");
-
-		NoticeBoards nb = new NoticeBoards();
-		nb.setTitle(title);
-		nb.setContent(content);
-		nb.setSeq(Integer.parseInt(num));
-
 		NoticeBoardsDao dao = new NoticeBoardsDao();
-		int cnt = dao.edit(nb);
+		NoticeBoards nb = dao.getNBD(num);
 		
-		if(cnt>0){
-			//System.out.println("cnt : "+cnt); //결과값 1
-			response.sendRedirect("noticeboardsDetail.jsp?no="+num);
-		}
+		request.setAttribute("nb", nb);
+		
+		request.getRequestDispatcher("noticeboardsEdit.jsp").forward(request, response);
 	}
 }
