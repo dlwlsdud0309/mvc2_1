@@ -106,7 +106,7 @@ if(session.getAttribute("sessionId")!=null){ //로그인 되어있을 경우
 	<a href="noticeboardsDelProc.jsp?no=${nb.seq}">삭제</a>
 <%
 	}
-}else if(session.getAttribute("sessionId")==null){
+}else if(session.getAttribute("sessionId")==null){ //로그인 되어있지 않은 경우
 %>
 	<a href="../dbConnectTest5_login/loginForm.jsp">login</a>
 <%
